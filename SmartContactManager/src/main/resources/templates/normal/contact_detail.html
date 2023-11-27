@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base1::layout(~{::section})">
+
+<head>
+	<meta charset="UTF-8" />
+	<title th:text="${title}"></title>
+</head>
+
+<body>
+	<section>
+
+		<div class="card mr-3" th:if="${contact}" style="background-color: azure">
+			<div class="card-body">
+				<div class="container text-center">
+
+					<img style="height: 170px; width: 170px; border-radius: 50%;" class="my_profile_image"
+						th:src="@{'/IMG/'+${contact.image}}" alt="profile image" />
+
+					<h3 class="mt-2"><span th:text="${contact.name}"></span></h3>
+
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">ID</th>
+								<th scope="col">SCM2023<span th:text="${contact.cId}"></span></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">Nick name</th>
+								<td><span th:text="${contact.secondName}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Work</th>
+								<td><span th:text="${contact.work}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Phone</th>
+								<td><span th:text="${contact.phone}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Email</th>
+								<td><span th:text="${contact.email}"></span></td>
+							</tr>
+						</tbody>
+
+					</table>
+
+					<div class="description mt-3">
+						<th:block th:utext="${contact.description}"></th:block>
+					</div>
+
+					<!--Button inside the card-->
+					<div class="container mt-4 text-center">
+						
+						<form th:action="@{'/user/updateform/'+ ${contact.cId}}" method="post">
+									<button type="submit" class="btn btn-block col-md-12 btn-success btn-sm">Update</button>
+								</form>
+						
+						<!--<button class="btn btn-success col-md-12 btn-block">Edit</button>-->
+						<button th:onclick="|deleteContact(${contact.cId})|"
+							class="btn btn-danger col-md-12 btn-block mt-1">Delete</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<!--putting the button outside the card-->
+
+		<div th:unless="${contact}" class="alert alert-danger text-center" role="alert">
+			Unauthorized Access !!
+		</div>
+
+
+	</section>
+</body>
+
+</html>

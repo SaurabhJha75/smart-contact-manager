@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title>Home Page</title>
+</head>
+
+<body>
+	<section class="banner d-flex justify-content-center align-items-center" style="color: white;">
+		<div class="text-center">
+			<h1 class="font-weight-bold">Smart Contact Manager</h1>
+			<p>Start collecting your contacts in very smart way. We provide very efficient and smarter way of handling contacts.</p>
+			<form th:action="@{/signup}" method="get">
+				<button class="btn bg-primary btn-lg text-white">Get Started</button>
+			</form>
+		</div>
+	</section>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base1::layout(~{::section})">
+
+<head>
+	<meta charset="UTF-8" />
+	<title th:text="${title}"></title>
+</head>
+
+<body>
+	<section>
+
+		<div class="card" style="background-color: azure;">
+			<div class="card-body">
+				<div class="container text-center">
+
+					<img style="height: 170px; width: 170px; border-radius: 50%;" class="my_profile_image"
+						th:src="@{'/IMG/'+${user.imageUrl}}" alt="profile image" />
+
+					<h2 class="mt-2"><span th:text="${user.name}">
+						</span></h2>
+
+					<div class="table-responsive">
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">USER ID</th>
+									<th scope="col">SCMUSER<span th:text="${user.id}"></span></th>
+								</tr>
+							</thead>
+							<tbody>
+
+								<tr>
+									<th scope="row">Email</th>
+									<td><span th:text="${user.email}"></span></td>
+								</tr>
+
+								<tr>
+									<th scope="row">Role</th>
+									<td><span th:text="${user.role}"></span></td>
+								</tr>
+
+								<tr>
+									<th scope="row">About</th>
+									<td><span th:text="${user.about}"></span></td>
+								</tr>
+
+								<tr>
+									<th scope="row">Account Status</th>
+									<td><span th:text="${user.enanled}"></span></td>
+								</tr>
+
+							</tbody>
+
+						</table>
+					</div>
+
+					<div class="container mt-4 text-center">
+
+						<!--<form th:action="@{/user/updateprofile}" method="get">
+									<button type="submit" class="btn btn-block col-md-12 btn-success btn-sm">Update</button>
+								</form>-->
+
+
+						<!-- Thymeleaf anchor tag -->
+						<!--<a th:href="@{/user/updateprofile}" class="btn btn-success col-md-12 btn-block mt-2">Update</a>
+
+						<button class="btn btn-danger col-md-12 btn-block mt-1">Delete</button>-->
+
+						<!--<button th:onclick="|deleteContact(${user.id})|"
+							class="btn btn-danger col-md-12 btn-block mt-1">Account Delete</button>-->
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<script>
+
+			$(document).ready(() => {
+				$(".item").removeClass("active");
+				$("#profile-link").addClass("active");
+			});
+
+		</script>
+
+	</section>
+</body>
+
+</html>
