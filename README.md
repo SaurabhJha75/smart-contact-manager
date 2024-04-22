@@ -51,6 +51,14 @@ In addition to providing secure access, the application empowers users with comp
 
 ---
 
+## Usage:
+
+* General users can easily manage their contacts by adding, viewing, updating, and deleting entries through an intuitive interface.
+* The application ensures the security of user data through robust encryption and authentication mechanisms.
+* Users can access their contacts from anywhere with an internet connection, enhancing productivity and connectivity.
+
+---
+
 ## How to Run:
 
 1. **Clone Repository**: Clone the repository to your local machine using the following command:
