@@ -1,5 +1,6 @@
 body{
-	background-color: #e2e2e2!important;
+	/*background-color: #e2e2e2!important; */
+	background-color: #111;
 }
 
 .bg-primary{
@@ -138,3 +139,58 @@ body{
   .icon-gap {
       margin-right: 10px; /* You can adjust the margin to your desired spacing */
     }
+
+/* Style for the slide bar before login page */
+        .sidebar1 {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 40px;
+        }
+
+        /* Links in the slide bar */
+        .sidebar1 a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        /* On hover, change the color of links */
+        .sidebar1 a:hover {
+            color: #f1f1f1;
+        }
+
+        /* The button to open the slide bar */
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #111;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+        }
+
+        /* Position the open button */
+        .openbtn:hover {
+            background-color:  #009688!important;
+        }
+
+        /* Style page content - use this if you want to shift content when slide bar opens */
+        #main {
+            transition: margin-left .5s;
+            /*padding: 16px; */
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidebar1 {padding-top: 15px;}
+            .sidebar1 a {font-size: 18px;}
+        }
