@@ -54,7 +54,22 @@
 	<!--END of Navbar-->
 	
 	
-	<div th:replace="${content}"></div>
+	<!-- Sidebar -->
+	<div id="mySidebar" class="sidebar1">
+		<a href="#" th:href="@{/}">HOME</a>
+		<a href="#" th:href="@{/about}">ABOUT</a>
+		<a href="#" th:href="@{/signin}">LOGIN</a>
+		<a href="#" th:href="@{/signup}">SIGNUP</a>
+	</div>
+
+	<div id="main">
+		<!-- Button to open the slide bar -->
+		<button class="openbtn" onclick="openNav()">☰</button>
+
+		<!-- Page content -->
+		<div th:replace="${content}"></div>
+
+	</div>
 
 	<!--Option 1: Bootstrap Bundle with Popper-->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
