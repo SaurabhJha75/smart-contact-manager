@@ -7,13 +7,51 @@
 </head>
 
 <body>
-	<section class="banner d-flex justify-content-center align-items-center" style="color: white;">
-		<div class="text-center">
-			<h1 class="font-weight-bold">Smart Contact Manager</h1>
-			<p>Start collecting your contacts in very smart way. We provide very efficient and smarter way of handling contacts.</p>
-			<form th:action="@{/signup}" method="get">
-				<button class="btn bg-primary btn-lg text-white">Get Started</button>
-			</form>
+	<section class="banner d-flex justify-content-center align-items-center position-relative overflow-hidden">
+		<!-- Animated background overlay -->
+		<div class="banner-overlay"></div>
+
+		<!-- Main content -->
+		<div class="text-center container px-3 position-relative z-1">
+			<div class="banner-content animate-in">
+				<h1 class="display-4 fw-bold mb-3 text-white animate-title">Smart Contact Manager</h1>
+				<p class="lead text-white-50 mb-4 animate-subtitle">Start collecting your contacts in a very smart way. We provide the most efficient and intelligent way of managing your contacts.</p>
+
+				<!-- Features Preview -->
+				<div class="row mb-5 mt-4 features-preview">
+					<div class="col-md-4 col-sm-6 mb-3 feature-item">
+						<i class="fas fa-address-book text-primary me-2"></i>
+						<p class="text-white-50">Organize Contacts</p>
+					</div>
+					<div class="col-md-4 col-sm-6 mb-3 feature-item">
+						<i class="fas fa-search text-primary me-2"></i>
+						<p class="text-white-50">Quick Search</p>
+					</div>
+					<div class="col-md-4 col-sm-6 mb-3 feature-item">
+						<i class="fas fa-shield-alt text-primary me-2"></i>
+						<p class="text-white-50">Secure & Safe</p>
+					</div>
+				</div>
+
+				<!-- CTA Buttons -->
+				<div class="button-group d-flex flex-wrap gap-3 justify-content-center">
+					<form th:action="@{/signup}" method="get" class="d-inline">
+						<button type="submit" class="btn btn-primary btn-lg btn-modern shadow-sm">
+							<i class="fas fa-arrow-right me-2"></i>Get Started
+						</button>
+					</form>
+					<form th:action="@{/about}" method="get" class="d-inline">
+						<button type="submit" class="btn btn-outline-light btn-lg btn-modern">
+							<i class="fas fa-info-circle me-2"></i>Learn More
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<!-- Scroll indicator -->
+		<div class="scroll-indicator">
+			<span></span>
 		</div>
 	</section>
 </body>

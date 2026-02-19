@@ -22,44 +22,62 @@
 <body>
 
 	<!--navbar-->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" th:href="@{/}">Smart Contact Manager</a>
-  
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
+		<div class="container-fluid">
+			<a class="navbar-brand fw-bold" th:href="@{/}">
+				<i class="fas fa-address-book me-2"></i>Smart Contact Manager
+			</a>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	  
-    <ul class="navbar-nav ms-auto text-uppercase">
-      <li class="nav-item active">
-        <a class="nav-link" th:href="@{/}">Home</a>
-      </li>
-      
-      <li class="nav-item">
-        <a class="nav-link" th:href="@{/about}">About</a>
-      </li>
-      
-      <li class="nav-item">
-          <a class="nav-link" th:href="@{/signin}" tabindex="-1" aria-disabled="true">Login</a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link" th:href="@{/signup}" tabindex="-1" aria-disabled="true">SignUp</a>
-        </li>
-      
-    </ul>
-  </div>
-</nav>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-auto text-uppercase">
+					<li class="nav-item">
+						<a class="nav-link navbar-link-enhanced" th:href="@{/}">
+							<i class="fas fa-home me-2"></i>Home
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link navbar-link-enhanced" th:href="@{/about}">
+							<i class="fas fa-info-circle me-2"></i>About
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link navbar-link-enhanced" th:href="@{/signin}">
+							<i class="fas fa-sign-in-alt me-2"></i>Login
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link btn btn-light text-primary ms-2 px-3 navbar-signup-btn" th:href="@{/signup}">
+							<i class="fas fa-user-plus me-2"></i>SignUp
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 	<!--END of Navbar-->
 	
 	
 	<!-- Sidebar -->
 	<div id="mySidebar" class="sidebar1">
-		<a href="#" th:href="@{/}">HOME</a>
-		<a href="#" th:href="@{/about}">ABOUT</a>
-		<a href="#" th:href="@{/signin}">LOGIN</a>
-		<a href="#" th:href="@{/signup}">SIGNUP</a>
+		<a href="#" th:href="@{/}" class="sidebar-link">
+			<i class="fas fa-home me-2"></i>Home
+		</a>
+		<a href="#" th:href="@{/about}" class="sidebar-link">
+			<i class="fas fa-info-circle me-2"></i>About
+		</a>
+		<a href="#" th:href="@{/signin}" class="sidebar-link">
+			<i class="fas fa-sign-in-alt me-2"></i>Login
+		</a>
+		<a href="#" th:href="@{/signup}" class="sidebar-link">
+			<i class="fas fa-user-plus me-2"></i>SignUp
+		</a>
 	</div>
 
 	<div id="main">

@@ -3,105 +3,135 @@
 
 <head>
 	<meta charset="UTF-8" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title th:text="${title}"></title>
 </head>
 
 <body>
-	<section>
-
+	<section class="signup-section d-flex align-items-center justify-content-center py-5">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-8 offset-md-2">
-					<div class="my-card mt-1" style="border-radius: 1rem;">
+			<div class="row justify-content-center">
+				<div class="col-lg-6 col-md-8">
+					<!-- Signup Card -->
+					<div class="signup-card">
+						<!-- Header -->
+						<div class="signup-header text-center mb-4">
+							<div class="signup-icon mb-3">
+								<i class="fas fa-user-plus fa-3x text-primary"></i>
+							</div>
+							<h1 class="signup-title fw-bold">Create Account</h1>
+							<p class="text-muted mb-0">Join Smart Contact Manager Today</p>
+						</div>
 
-						<!--Displaying the message-->
-						<div th:if="${session.message}" th:classappend="${session.message.type}" class="alert"
-							role="alert">
-							<p class="text-center" th:text="${session.message.content}"></p>
-
-							<!--Removing the message form session-->
+						<!-- Alert Messages -->
+						<div th:if="${session.message}" th:classappend="${session.message.type}" class="alert alert-dismissible fade show" role="alert">
+							<i class="fas fa-check-circle me-2"></i>
+							<p class="mb-0" th:text="${session.message.content}"></p>
+							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 							<th:block th:text="${@sessionHelper.removeMessageFromSession()}"></th:block>
 						</div>
 
-						<div class="container text-center">
-							<img style="width:80px" th:src="@{/IMG/membership.png}" alt="" />
-						</div>
+						<!-- Signup Form -->
+						<form novalidate th:action="@{/do_register}" method="post" th:object="${user}" class="signup-form">
 
-						<h1 class="text-center">Register Here !!</h1>
-
-						<form novalidate th:action="@{/do_register}" method="post" th:object="${user}">
-
-							<!-- name field-->
-							<div class="mb-3">
-
-								<label for="name_field" class="form-label">Your Name</label>
-								<input name="name" type="text" class="form-control" id="name_field"
-									aria-describedby="emailHelp" placeholder="Enter here" th:value="${user.name}"
+							<!-- Name Field -->
+							<div class="form-group mb-4">
+								<label for="name_field" class="form-label fw-bold mb-2">
+									<i class="fas fa-user me-2 text-primary"></i>Full Name
+								</label>
+								<input name="name" type="text" class="form-control form-control-lg"
+									id="name_field" placeholder="Enter your full name"
+									th:value="${user.name}"
 									th:classappend="${#fields.hasErrors('name') ? 'is-invalid' : ''}" required />
-
-								<div class="invalid-feedback" th:each="e : ${#fields.errors('name')}" th:text="${e}">
+								<div class="invalid-feedback d-block" th:each="e : ${#fields.errors('name')}" th:text="${e}">
 								</div>
-
 							</div>
 
-							<!--Email field-->
-							<div class="mb-3">
-
-								<label for="email_field" class="form-label">Your Email</label>
-								<input name="email" type="email" class="form-control" id="email_field"
-									aria-describedby="emailHelp" placeholder="Enter here" th:value="${user.email}"
+							<!-- Email Field -->
+							<div class="form-group mb-4">
+								<label for="email_field" class="form-label fw-bold mb-2">
+									<i class="fas fa-envelope me-2 text-primary"></i>Email Address
+								</label>
+								<input name="email" type="email" class="form-control form-control-lg"
+									id="email_field" placeholder="Enter your email address"
+									th:value="${user.email}"
 									th:classappend="${#fields.hasErrors('email') ? 'is-invalid' : ''}" required />
-
-								<div class="invalid-feedback" th:each="e : ${#fields.errors('email')}" th:text="${e}">
+								<div class="invalid-feedback d-block" th:each="e : ${#fields.errors('email')}" th:text="${e}">
 								</div>
-
+								<small class="form-text text-muted">We'll never share your email with anyone.</small>
 							</div>
 
-							<!--Password Field-->
-							<div class="mb-3">
-
-								<label for="password_field" class="form-label">Your Password</label>
-								<input name="password" type="password" class="form-control" id="password_field"
-									aria-describedby="emailHelp" placeholder="Enter here" th:value="${user.password}"
+							<!-- Password Field -->
+							<div class="form-group mb-4">
+								<label for="password_field" class="form-label fw-bold mb-2">
+									<i class="fas fa-lock me-2 text-primary"></i>Password
+								</label>
+								<input name="password" type="password" class="form-control form-control-lg"
+									id="password_field" placeholder="Create a strong password"
+									th:value="${user.password}"
 									th:classappend="${#fields.hasErrors('password') ? 'is-invalid' : ''}" required />
-
-								<div class="invalid-feedback" th:each="e : ${#fields.errors('password')}"
-									th:text="${e}"></div>
-
+								<div class="invalid-feedback d-block" th:each="e : ${#fields.errors('password')}" th:text="${e}">
+								</div>
+								<small class="form-text text-muted">Minimum 8 characters recommended.</small>
 							</div>
 
-							<!--user about field-->
-							<div class="mb-3">
-								<textarea name="about" placeholder="Enter something about yourself" rows="6"
-									class="form-control" th:value="${user.about}"
+							<!-- About Field -->
+							<div class="form-group mb-4">
+								<label for="about_field" class="form-label fw-bold mb-2">
+									<i class="fas fa-pencil-alt me-2 text-primary"></i>About You
+								</label>
+								<textarea name="about" id="about_field" placeholder="Tell us something about yourself..." rows="5"
+									class="form-control form-control-lg"
+									th:value="${user.about}"
 									th:classappend="${#fields.hasErrors('about') ? 'is-invalid' : ''}"></textarea>
+								<div class="invalid-feedback d-block" th:each="e : ${#fields.errors('about')}" th:text="${e}">
+								</div>
+								<small class="form-text text-muted">This helps us personalize your experience.</small>
+							</div>
 
-								<div class="invalid-feedback" th:each="e : ${#fields.errors('about')}" th:text="${e}">
+							<!-- Terms and Conditions -->
+							<div class="form-group mb-4">
+								<div class="form-check">
+									<input type="checkbox" name="agreement" class="form-check-input" id="agreement" required />
+									<label class="form-check-label" for="agreement">
+										I agree to the <a href="#!" class="link-primary">Terms of Use</a> and <a href="#!" class="link-primary">Privacy Policy</a>
+									</label>
 								</div>
 							</div>
 
-							<!--terms and condition agreements-->
-							<div class="mb-3 form-check">
+							<!-- Submit Button -->
+							<button type="submit" class="btn btn-primary btn-lg w-100 fw-bold mb-3">
+								<i class="fas fa-check-circle me-2"></i>Create Account
+							</button>
 
-								<label for="agreement">Accepts terms and conditions</label>
-								<input type="checkbox" name="agreement" class="form-check-input" id="agreement" />
+							<!-- Reset Button -->
+							<button type="reset" class="btn btn-outline-secondary btn-lg w-100 fw-bold mb-3">
+								<i class="fas fa-redo me-2"></i>Clear Form
+							</button>
 
+							<!-- Login Link -->
+							<hr class="my-4">
+
+							<div class="text-center">
+								<p class="text-muted mb-0">Already have an account?</p>
+								<a th:href="@{/signin}" class="login-link fw-bold mt-2 d-inline-block">
+									<i class="fas fa-sign-in-alt me-1"></i>Sign In Here
+								</a>
 							</div>
-
-							<!--button fields-->
-							<div class="container text-center">
-
-								<button type="submit" class="btn bg-primary text-white">Submit</button>
-								<button type="reset" class="btn btn-warning text-white">Reset</button>
-
-							</div>
-
-							<p class="mb-5 pb-lg-2" style="color: #393f81;">Alreday registered? <a th:href="@{/signin}"
-									style="color: #393f81;">Login here</a></p>
-							<a href="#!" class="small text-muted">Terms of use.</a>
-							<a href="#!" class="small text-muted">Privacy policy</a>
 
 						</form>
+
+						<!-- Footer -->
+						<div class="signup-footer text-center mt-4 pt-3 border-top">
+							<small class="text-muted d-block mb-2">
+								<a href="#!" class="link-secondary">Terms of Use</a> |
+								<a href="#!" class="link-secondary">Privacy Policy</a>
+							</small>
+							<small class="text-muted d-block">
+								<i class="fas fa-lock-open me-1"></i>Your data is secure with us
+							</small>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -3,108 +3,397 @@
 
 <head>
 	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title th:text="${title}"></title>
-
-	<!-- <style>
-		/* Add your CSS styles here */
-		body {
-			font-family: Arial, sans-serif;
-			background-color: #f0f0f0;
-			margin: 0;
-			padding: 0;
-		}
-	
-		.container {
-			max-width: 800px;
-			margin: 0 auto;
-			padding: 20px;
-			background-color: #fff;
-			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-		}
-	
-		h1 {
-			color: #333;
-		}
-	
-		p {
-			color: #666;
-		}
-	</style> -->
-
 </head>
 
 <body>
-	<section class="banner1 d-flex">
+	<!-- Hero Banner Section -->
+	<section class="about-hero position-relative overflow-hidden">
+		<div class="about-overlay"></div>
+		<div class="container-fluid h-100 d-flex align-items-center justify-content-center position-relative z-1">
+			<div class="text-center text-white animate-in">
+				<h1 class="display-3 fw-bold mb-3 animate-title">About Smart Contact Manager</h1>
+				<p class="lead text-white-50 max-width-600">
+					Managing your connections has never been easier. Discover how we're revolutionizing contact management.
+				</p>
+			</div>
+		</div>
+	</section>
 
-		<div class="container my-3">
-			<h1 class="text-center mb-2">About Us</h1>
-			<p>Welcome to Smart Contact Manager application. Our platform is meticulously crafted
-				to empower you in efficiently managing your contacts. This cloud-based smart contact manager offers the
-				convenience of
-				accessing your contacts from anywhere, underscoring the utmost importance of data security through a
-				robust login module. Our commitment to your privacy is unwavering.
-
-				Implemented user registration and authentication functionalities, ensuring a personalized experience for
-				each user while maintaining privacy.
-
-				Designed and integrated features allowing users to effortlessly Add, View, Update, and Delete contacts,
-				enhancing contact management efficiency.
-
-				Created a user-friendly profile section enabling users to view and modify their details, including the
-				ability to change account passwords, further enhancing security measures.
-
-				Successfully contributed to the application's functionality to provide a smooth and intuitive
-				experience, enhancing overall user satisfaction.
-				We've integrated user-friendly features for seamless
-				interaction. Here are some key
-				features:</p>
-
-			<h2>Key Features</h2>
-			<ul>
-				<li><b>Registration and Authentication:</b> Our system provides a personalized experience, ensuring the
-					security and uniqueness of your account.</li>
-				<li><b>Contact Management:</b> Adding, viewing, updating, and deleting contacts is intuitive,
-					streamlining your contact management tasks.</li>
-				<li><b>Profile Section:</b> Take control of your information with our user-friendly profile section. You
-					can effortlessly view and modify your details, including changing your account password, further
-					fortifying your account's security.</li>
-			</ul>
-
-			<h2>Technologies Used</h2>
-			<ul>
-				<li>Java</li>
-				<li>Spring Boot</li>
-				<li>Spring MVC</li>
-				<li>Spring Security</li>
-				<li>Spring Data JPA</li>
-				<li>MySQL</li>
-				<li>Maven and Thymeleaf</li>
-			</ul>
-
-			<h2>Developers</h2>
-			<p>This application is developed by:</p>
-			<ul>
-				<li><a
-						href="https://saurabhjha75.github.io/saurabhkumarjha.github.io/?fbclid=IwAR3TsJ7OZCG7RCk69CJ5AZ70DlqESksMb0vNhiKIt5S53xM-HW77bRpCJH4">Saurabh
-						Kumar Jha</a></li>
-				<!-- Add more developers if needed -->
-			</ul>
-
-			<p>Our team is dedicated to continuously enhancing the application's functionality, ensuring a smooth and
-				intuitive experience for all users. Your satisfaction is our priority. If you have any queries,
-				feedback, or need support, please feel free to reach out to me.</p>
-
-			<div class="container text-center">
-
-				<h2 class="mb-3">Contact Us</h2>
-				<a href="mailto:saurabhkumarjha525@gmail.com"><i class="fa-regular fa-envelope fa-xl icon-gap"></i></a>
-				<a href="https://www.linkedin.com/in/saurabh-kumar-jha-b623951b0/"><i
-						class="fa-brands fa-linkedin fa-xl icon-gap"></i></a>
-				<a href="https://github.com/SaurabhJha75"><i class="fa-brands fa-github fa-xl icon-gap"></i></a>
-				<a href="https://www.facebook.com/saurabh.kumarjha.129/"><i
-						class="fa-brands fa-facebook fa-xl icon-gap"></i></a>
+	<!-- Main Content Section -->
+	<section class="about-content py-5 bg-light">
+		<div class="container py-5">
+			<!-- Introduction -->
+			<div class="row align-items-center mb-5 pb-5">
+				<div class="col-lg-6 mb-4 mb-lg-0">
+					<div class="content-animate">
+						<h2 class="section-title mb-4">
+							<span class="text-primary">Welcome to</span> Smart Contact Manager
+						</h2>
+						<p class="lead text-muted mb-3">
+							A cloud-based solution designed to empower you in efficiently managing your contacts with ease and security.
+						</p>
+						<p class="text-muted mb-3">
+							Our platform is meticulously crafted to provide the convenience of accessing your contacts from anywhere,
+							anytime. With our robust security infrastructure and intuitive interface, managing your professional and
+							personal network has never been more seamless.
+						</p>
+						<p class="text-muted">
+							We're committed to protecting your data privacy while providing an exceptional user experience that
+							simplifies your contact management tasks.
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="feature-graphic">
+						<div class="graphic-placeholder">
+							<i class="fas fa-address-book fa-10x text-primary opacity-20"></i>
+						</div>
+					</div>
+				</div>
 			</div>
 
+			<!-- Statistics Section -->
+			<div class="row g-4 mb-5 pb-5">
+				<div class="col-md-4">
+					<div class="stat-card text-center p-4 rounded">
+						<div class="stat-icon mb-3">
+							<i class="fas fa-users text-primary fa-3x"></i>
+						</div>
+						<h4 class="fw-bold">User Focused</h4>
+						<p class="text-muted small">Designed with your needs in mind</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="stat-card text-center p-4 rounded">
+						<div class="stat-icon mb-3">
+							<i class="fas fa-lock text-primary fa-3x"></i>
+						</div>
+						<h4 class="fw-bold">Secure & Safe</h4>
+						<p class="text-muted small">Enterprise-grade security measures</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="stat-card text-center p-4 rounded">
+						<div class="stat-icon mb-3">
+							<i class="fas fa-cloud text-primary fa-3x"></i>
+						</div>
+						<h4 class="fw-bold">Cloud Based</h4>
+						<p class="text-muted small">Access anywhere, anytime</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Key Features Section -->
+	<section class="py-5">
+		<div class="container py-5">
+			<div class="text-center mb-5 pb-3">
+				<h2 class="section-title mb-3">Key Features</h2>
+				<p class="text-muted lead">Everything you need to manage your contacts effectively</p>
+			</div>
+
+			<div class="row g-4">
+				<!-- Feature 1 -->
+				<div class="col-lg-4 col-md-6">
+					<div class="feature-card h-100 p-4 rounded shadow-sm">
+						<div class="feature-icon mb-3">
+							<i class="fas fa-user-check text-primary fa-2x"></i>
+						</div>
+						<h4 class="fw-bold mb-3">Registration & Authentication</h4>
+						<p class="text-muted">
+							Secure account creation and login system. Our authentication system provides personalized experience
+							while ensuring the security and uniqueness of your account with industry-standard encryption.
+						</p>
+					</div>
+				</div>
+
+				<!-- Feature 2 -->
+				<div class="col-lg-4 col-md-6">
+					<div class="feature-card h-100 p-4 rounded shadow-sm">
+						<div class="feature-icon mb-3">
+							<i class="fas fa-address-card text-primary fa-2x"></i>
+						</div>
+						<h4 class="fw-bold mb-3">Contact Management</h4>
+						<p class="text-muted">
+							Add, view, update, and delete contacts with ease. Our intuitive interface streamlines your contact
+							management tasks, allowing you to organize and maintain your network effortlessly.
+						</p>
+					</div>
+				</div>
+
+				<!-- Feature 3 -->
+				<div class="col-lg-4 col-md-6">
+					<div class="feature-card h-100 p-4 rounded shadow-sm">
+						<div class="feature-icon mb-3">
+							<i class="fas fa-user-cog text-primary fa-2x"></i>
+						</div>
+						<h4 class="fw-bold mb-3">Profile Management</h4>
+						<p class="text-muted">
+							Take complete control of your account. View and modify your profile details, change your password,
+							and manage your security preferences all in one dedicated user-friendly section.
+						</p>
+					</div>
+				</div>
+
+				<!-- Feature 4 -->
+				<div class="col-lg-4 col-md-6">
+					<div class="feature-card h-100 p-4 rounded shadow-sm">
+						<div class="feature-icon mb-3">
+							<i class="fas fa-search text-primary fa-2x"></i>
+						</div>
+						<h4 class="fw-bold mb-3">Advanced Search</h4>
+						<p class="text-muted">
+							Quickly find any contact with our powerful search functionality. Filter and locate contacts
+							instantly, saving you valuable time and effort.
+						</p>
+					</div>
+				</div>
+
+				<!-- Feature 5 -->
+				<div class="col-lg-4 col-md-6">
+					<div class="feature-card h-100 p-4 rounded shadow-sm">
+						<div class="feature-icon mb-3">
+							<i class="fas fa-mobile-alt text-primary fa-2x"></i>
+						</div>
+						<h4 class="fw-bold mb-3">Responsive Design</h4>
+						<p class="text-muted">
+							Access your contacts on any device. Our responsive design ensures a seamless experience whether
+							you're on desktop, tablet, or mobile.
+						</p>
+					</div>
+				</div>
+
+				<!-- Feature 6 -->
+				<div class="col-lg-4 col-md-6">
+					<div class="feature-card h-100 p-4 rounded shadow-sm">
+						<div class="feature-icon mb-3">
+							<i class="fas fa-sync-alt text-primary fa-2x"></i>
+						</div>
+						<h4 class="fw-bold mb-3">Real-time Updates</h4>
+						<p class="text-muted">
+							Changes are reflected instantly across all your devices. Keep your contact information always
+							up-to-date and synchronized.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Technologies Section -->
+	<section class="py-5">
+		<div class="container py-5">
+			<div class="text-center mb-5 pb-3">
+				<h2 class="section-title mb-3">Built With Modern Technology</h2>
+				<p class="text-muted lead">We use industry-leading technologies to ensure reliability and performance</p>
+			</div>
+
+			<div class="row g-4">
+				<!-- Backend Technology -->
+				<div class="col-lg-6">
+					<div class="tech-card-main">
+						<div class="tech-header">
+							<i class="fas fa-server fa-2x text-white"></i>
+							<h4 class="fw-bold text-white mb-0">Backend Technology</h4>
+						</div>
+
+						<div class="tech-items-grid">
+							<div class="tech-box">
+								<div class="tech-icon">
+									<i class="fab fa-java fa-2x"></i>
+								</div>
+								<h6 class="fw-bold mt-3">Java</h6>
+								<p class="small">Core Programming Language</p>
+							</div>
+
+							<div class="tech-box">
+								<div class="tech-icon">
+									<i class="fas fa-leaf fa-2x"></i>
+								</div>
+								<h6 class="fw-bold mt-3">Spring Boot</h6>
+								<p class="small">Application Framework</p>
+							</div>
+
+							<div class="tech-box">
+								<div class="tech-icon">
+									<i class="fas fa-cog fa-2x"></i>
+								</div>
+								<h6 class="fw-bold mt-3">Spring MVC</h6>
+								<p class="small">Web Framework</p>
+							</div>
+
+							<div class="tech-box">
+								<div class="tech-icon">
+									<i class="fas fa-shield-alt fa-2x"></i>
+								</div>
+								<h6 class="fw-bold mt-3">Spring Security</h6>
+								<p class="small">Authentication & Authorization</p>
+							</div>
+
+							<div class="tech-box">
+								<div class="tech-icon">
+									<i class="fas fa-database fa-2x"></i>
+								</div>
+								<h6 class="fw-bold mt-3">Spring Data JPA</h6>
+								<p class="small">Database Access Layer</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Frontend & Database -->
+				<div class="col-lg-6">
+					<div class="tech-card-main">
+						<div class="tech-header">
+							<i class="fas fa-laptop-code fa-2x text-white"></i>
+							<h4 class="fw-bold text-white mb-0">Frontend & Database</h4>
+						</div>
+
+						<div class="tech-items-grid">
+							<div class="tech-box">
+								<div class="tech-icon">
+									<i class="fas fa-leaf fa-2x"></i>
+								</div>
+								<h6 class="fw-bold mt-3">Thymeleaf</h6>
+								<p class="small">Template Engine</p>
+							</div>
+
+							<div class="tech-box">
+								<div class="tech-icon">
+									<i class="fab fa-bootstrap fa-2x"></i>
+								</div>
+								<h6 class="fw-bold mt-3">Bootstrap 5</h6>
+								<p class="small">UI Framework</p>
+							</div>
+
+							<div class="tech-box">
+								<div class="tech-icon">
+									<i class="fas fa-database fa-2x"></i>
+								</div>
+								<h6 class="fw-bold mt-3">MySQL</h6>
+								<p class="small">Relational Database</p>
+							</div>
+
+							<div class="tech-box">
+								<div class="tech-icon">
+									<i class="fas fa-cube fa-2x"></i>
+								</div>
+								<h6 class="fw-bold mt-3">Maven</h6>
+								<p class="small">Build Automation</p>
+							</div>
+
+							<div class="tech-box">
+								<div class="tech-icon">
+									<i class="fas fa-icons fa-2x"></i>
+								</div>
+								<h6 class="fw-bold mt-3">Font Awesome</h6>
+								<p class="small">Icon Library</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Developer Section -->
+	<section class="py-5 bg-light">
+		<div class="container py-5">
+			<div class="text-center mb-5 pb-3">
+				<h2 class="section-title mb-3">Meet the Developer</h2>
+				<p class="text-muted lead">Passionate about creating intuitive solutions</p>
+			</div>
+
+			<div class="row justify-content-center">
+				<div class="col-lg-8">
+					<div class="developer-card-simple text-center p-5 rounded">
+						<!-- Developer Photo -->
+						<div class="developer-photo-container mb-4">
+							<img src="/IMG/saurabh.jpeg" alt="Saurabh Kumar Jha" class="developer-photo" loading="lazy">
+						</div>
+
+						<h3 class="developer-name fw-bold mb-2">Saurabh Kumar Jha</h3>
+						<p class="developer-title text-primary fw-bold mb-4">Java Full Stack Developer | Spring Boot Specialist | Building Scalable Backend Solutions</p>
+
+						<p class="text-muted mb-5 lead">
+							A dedicated developer focused on creating seamless user experiences and robust backend solutions.
+							Passionate about leveraging modern technologies to solve real-world problems.
+						</p>
+
+						<!-- Social Links Section -->
+						<div class="mb-5">
+							<h5 class="fw-bold text-dark mb-4">Connect With Me</h5>
+							<div class="social-links-simple">
+								<a href="mailto:saurabhkumarjha525@gmail.com" class="social-link-simple" title="Email">
+									<i class="fas fa-envelope"></i>
+								</a>
+								<a href="https://www.linkedin.com/in/saurabh-kumar-jha-b623951b0/" target="_blank" class="social-link-simple" title="LinkedIn">
+									<i class="fab fa-linkedin"></i>
+								</a>
+								<a href="https://github.com/SaurabhJha75" target="_blank" class="social-link-simple" title="GitHub">
+									<i class="fab fa-github"></i>
+								</a>
+								<a href="https://www.facebook.com/saurabh.kumarjha.129/" target="_blank" class="social-link-simple" title="Facebook">
+									<i class="fab fa-facebook"></i>
+								</a>
+							</div>
+						</div>
+
+						<!-- Skills & Expertise Section -->
+						<div class="mt-5">
+							<h5 class="fw-bold text-dark mb-4">
+								<i class="fas fa-star text-primary me-2"></i>Skills & Expertise
+							</h5>
+							<div class="skills-tags">
+								<span class="skill-tag">Java</span>
+								<span class="skill-tag">Spring Boot</span>
+								<span class="skill-tag">Web Development</span>
+								<span class="skill-tag">Database Design</span>
+								<span class="skill-tag">Security</span>
+								<span class="skill-tag">Problem Solving</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Call to Action Section -->
+	<section class="cta-section py-5 text-white position-relative overflow-hidden">
+		<div class="cta-overlay"></div>
+		<div class="container py-5 position-relative z-1">
+			<div class="text-center">
+				<h2 class="display-5 fw-bold mb-3">Ready to Manage Your Contacts Better?</h2>
+				<p class="lead mb-4 text-white-50">
+					Join thousands of users who trust Smart Contact Manager for their contact management needs.
+				</p>
+				<div class="button-group d-flex flex-wrap gap-3 justify-content-center">
+					<a th:href="@{/signup}" class="btn btn-light btn-lg btn-modern">
+						<i class="fas fa-sign-in-alt me-2"></i>Get Started Now
+					</a>
+					<a th:href="@{/}" class="btn btn-outline-light btn-lg btn-modern">
+						<i class="fas fa-arrow-left me-2"></i>Back to Home
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer CTA -->
+	<section class="py-5 bg-light text-center">
+		<div class="container">
+			<h3 class="fw-bold mb-3">Have Questions? We're Here to Help</h3>
+			<p class="text-muted mb-4">
+				If you have any queries, feedback, or need support, please don't hesitate to reach out.
+				We're committed to providing the best experience possible.
+			</p>
+			<a href="mailto:saurabhkumarjha525@gmail.com" class="btn btn-primary btn-modern">
+				<i class="fas fa-envelope me-2"></i>Send us an Email
+			</a>
 		</div>
 
 	</section>
