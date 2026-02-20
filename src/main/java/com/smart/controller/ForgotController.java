@@ -45,10 +45,42 @@ public class ForgotController {
 		int otp = random.nextInt(9999);
 
 		// code for sending otp to email
+		String subject = "🔐 Secure Your Account - OTP Verification Code";
 
-		String subject = "OTP from SCM";
-		String message = " " + "<div style='border: 1px solid #e2e2e2'; padding: 20px'>" + "<h1>" + "OTP is " + "<b>"
-				+ otp + "</n>" + "</h1>" + "</div>";
+		String message = "<div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;'>"
+				+ "<div style='background: linear-gradient(135deg, #27ae60 0%, #229954 100%); padding: 30px; text-align: center; border-radius: 10px 10px 0 0;'>"
+				+ "<h1 style='color: white; margin: 0; font-size: 28px;'>Smart Contact Manager</h1>"
+				+ "<p style='color: rgba(255,255,255,0.9); margin: 10px 0 0 0;'>Password Reset Verification</p>"
+				+ "</div>"
+				+ "<div style='background: #f8f9fa; padding: 40px 30px; border-radius: 0 0 10px 10px;'>"
+				+ "<p style='color: #2c3e50; font-size: 16px; margin-top: 0;'>Hello,</p>"
+				+ "<p style='color: #555; font-size: 15px; line-height: 1.6;'>You requested to reset your password for your Smart Contact Manager account. "
+				+ "To proceed with the password reset, please verify your identity using the One-Time Password (OTP) below.</p>"
+				+ "<div style='background: white; border: 2px solid #27ae60; border-radius: 8px; padding: 20px; margin: 30px 0; text-align: center;'>"
+				+ "<p style='color: #7f8c8d; font-size: 13px; margin: 0 0 15px 0; text-transform: uppercase; letter-spacing: 2px;'>Your OTP Code</p>"
+				+ "<h2 style='color: #27ae60; font-size: 48px; margin: 0; letter-spacing: 8px; font-weight: bold;'>" + String.format("%04d", otp) + "</h2>"
+				+ "<p style='color: #e74c3c; font-size: 13px; margin: 15px 0 0 0;'>⚠️ This code expires in 10 minutes</p>"
+				+ "</div>"
+				+ "<div style='background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 20px 0; border-radius: 4px;'>"
+				+ "<p style='color: #856404; font-size: 14px; margin: 0;'><strong>⚡ Important:</strong> Never share this code with anyone. Our support team will never ask for your OTP.</p>"
+				+ "</div>"
+				+ "<p style='color: #555; font-size: 14px; margin: 25px 0;'>If you didn't request this password reset, please ignore this email and your account will remain secure.</p>"
+				+ "<p style='color: #7f8c8d; font-size: 14px; margin: 30px 0 10px 0;'>Steps to reset your password:</p>"
+				+ "<ol style='color: #555; font-size: 14px; padding-left: 20px;'>"
+				+ "<li>Copy or note the OTP code above</li>"
+				+ "<li>Go back to the password reset page</li>"
+				+ "<li>Enter the OTP code when prompted</li>"
+				+ "<li>Create a new strong password</li>"
+				+ "<li>Complete the password reset process</li>"
+				+ "</ol>"
+				+ "<hr style='border: none; border-top: 1px solid #ecf0f1; margin: 30px 0;'>"
+				+ "<p style='color: #7f8c8d; font-size: 12px; text-align: center; margin: 20px 0;'>"
+				+ "© 2026 Smart Contact Manager. All rights reserved.<br>"
+				+ "This is an automated message, please do not reply to this email."
+				+ "</p>"
+				+ "</div>"
+				+ "</div>";
+
 		String to = email;
 
 		User user = this.userRepo.getUserByUsername(email);

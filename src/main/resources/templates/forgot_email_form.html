@@ -3,49 +3,387 @@
 
 <head>
 	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title th:text="${title}"></title>
+	<style>
+		:root {
+			--primary-color: #ffc107;
+			--primary-dark: #ffb300;
+			--text-dark: #2c3e50;
+			--text-muted: #7f8c8d;
+			--border-color: #ecf0f1;
+			--shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+			--shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+		}
+
+		body {
+			background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+			min-height: 100vh;
+		}
+
+		.banner {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 2rem 1rem;
+			min-height: 100vh;
+		}
+
+		.forget-card {
+			background: white;
+			border: none;
+			border-radius: 12px;
+			box-shadow: var(--shadow-md);
+			max-width: 450px;
+			width: 100%;
+			overflow: hidden;
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
+
+		.forget-card:hover {
+			transform: translateY(-4px);
+			box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+		}
+
+		/* Header Section */
+		.forget-card-header {
+			background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+			padding: 2rem 1.5rem;
+			text-align: center;
+			color: #fff;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.forget-card-header::before {
+			content: '';
+			position: absolute;
+			top: -50%;
+			right: -10%;
+			width: 300px;
+			height: 300px;
+			background: rgba(255, 255, 255, 0.1);
+			border-radius: 50%;
+		}
+
+		.forget-card-header h2 {
+			font-size: 1.75rem;
+			font-weight: 700;
+			margin: 0;
+			position: relative;
+			z-index: 1;
+			letter-spacing: -0.5px;
+		}
+
+		.forget-card-header p {
+			font-size: 0.95rem;
+			margin-top: 0.5rem;
+			opacity: 0.95;
+			position: relative;
+			z-index: 1;
+		}
+
+		/* Body Section */
+		.forget-card-body {
+			padding: 2rem 1.5rem;
+		}
+
+		.forget-card-body .form-label {
+			font-weight: 700 !important;
+			color: #ffffff !important;
+			background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%) !important;
+			margin-bottom: 1rem !important;
+			font-size: 1rem !important;
+			display: block !important;
+			padding: 0.75rem 1rem !important;
+			border-radius: 6px !important;
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+		}
+
+		.form-label::after {
+			content: ' *';
+			color: #ffee88;
+			margin-left: 0.25rem;
+		}
+
+		/* Ensure label text visibility */
+		.forget-card-body label {
+			display: block !important;
+			color: #ffffff !important;
+			font-weight: 700 !important;
+			margin-bottom: 1rem !important;
+		}
+
+		.form-control {
+			border: 1.5px solid var(--border-color);
+			border-radius: 8px;
+			padding: 0.75rem 1rem;
+			font-size: 0.95rem;
+			transition: border-color 0.3s ease, box-shadow 0.3s ease;
+			width: 100%;
+		}
+
+		.form-control:focus {
+			border-color: var(--primary-color);
+			box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25);
+		}
+
+		.form-control::placeholder {
+			color: #bdc3c7;
+			font-style: italic;
+		}
+
+		.form-text {
+			font-size: 0.85rem;
+			color: var(--text-muted);
+			margin-top: 0.5rem;
+			line-height: 1.5;
+		}
+
+		/* Alert Styling */
+		.alert {
+			border-radius: 8px;
+			border: none;
+			padding: 1rem 1.25rem;
+			margin-bottom: 1.5rem;
+			background-color: #ffe6e6;
+			color: #c0392b;
+			display: flex;
+			align-items: flex-start;
+			gap: 1rem;
+		}
+
+		.alert svg {
+			flex-shrink: 0;
+			margin-top: 0.125rem;
+		}
+
+		/* Button Styling */
+		.btn-wrapper {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 1rem;
+			margin-top: 2rem;
+		}
+
+		.btn {
+			padding: 0.875rem 2rem;
+			font-weight: 700;
+			border-radius: 8px;
+			transition: all 0.3s ease;
+			border: none;
+			font-size: 1.05rem;
+			letter-spacing: 0.5px;
+			text-decoration: none;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			width: 100%;
+		}
+
+		.btn-primary {
+			background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+			color: #ffffff;
+			box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+		}
+
+		.btn-primary:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 8px 25px rgba(255, 193, 7, 0.4);
+			background: linear-gradient(135deg, var(--primary-dark) 0%, #ff9800 100%);
+			color: #ffffff;
+		}
+
+		.btn-primary:active {
+			transform: translateY(-1px);
+			box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+		}
+
+		.btn-secondary {
+			background: transparent;
+			color: var(--text-dark);
+			border: 2px solid var(--border-color);
+		}
+
+		.btn-secondary:hover {
+			border-color: var(--primary-color);
+			background: var(--primary-color);
+			color: #ffffff;
+		}
+
+		/* Footer */
+		.forget-card-footer {
+			background: #f8f9fa;
+			padding: 1rem 1.5rem;
+			text-align: center;
+			border-top: 1px solid var(--border-color);
+			font-size: 0.85rem;
+			color: var(--text-muted);
+			line-height: 1.6;
+		}
+
+		/* Responsive Design */
+		@media (max-width: 576px) {
+			.banner {
+				padding: 1.5rem 1rem;
+				min-height: auto;
+			}
+
+			.forget-card {
+				max-width: 100%;
+			}
+
+			.forget-card-header {
+				padding: 1.5rem 1.25rem;
+			}
+
+			.forget-card-header h2 {
+				font-size: 1.5rem;
+			}
+
+			.forget-card-body {
+				padding: 1.5rem 1.25rem;
+			}
+
+			.btn-wrapper {
+				gap: 0.5rem;
+			}
+
+			.btn {
+				padding: 0.65rem 1.25rem;
+				font-size: 0.95rem;
+			}
+		}
+
+		@media (max-width: 360px) {
+			.forget-card-header h2 {
+				font-size: 1.25rem;
+			}
+
+			.forget-card-header p {
+				font-size: 0.85rem;
+			}
+
+			.form-label {
+				font-size: 0.9rem;
+			}
+
+			.form-control {
+				font-size: 0.9rem;
+				padding: 0.65rem 0.875rem;
+			}
+		}
+
+		/* Animation */
+		@keyframes slideIn {
+			from {
+				opacity: 0;
+				transform: translateY(10px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		.forget-card {
+			animation: slideIn 0.5s ease-out;
+		}
+	</style>
 </head>
 
 <body>
-	<section class="banner d-flex">
-
+	<section class="banner">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-6 offset-md-3">
-					<div class="my-card mt-3">
+			<div class="forget-card">
+				<!-- Header -->
+				<div class="forget-card-header">
+					<h2>Reset Password</h2>
+					<p>Verify your email to regain access</p>
+				</div>
 
-						<!--Message box-->
-						<div th:if="${session.message}" class="container">
-							<div class="alert alert-danger my-2 text-center" role="alert">
-								<span th:text="${session.message}"></span>
+				<!-- Body -->
+				<div class="forget-card-body">
+					<!-- Error Message -->
+					<div th:if="${session.message}" class="mb-3">
+						<div class="alert alert-danger" role="alert">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+								<path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0l-5.708 9.772a1.13 1.13 0 0 0 .98 1.662h11.456c.846 0 1.23-.932.98-1.662L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a.5.5 0 1 1 0 1 .5.5 0 0 1 0-1z"/>
+							</svg>
+							<span th:text="${session.message}"></span>
+						</div>
+						<th:block th:text="${@sessionHelper.removeMessageFromSession()}"></th:block>
+					</div>
+
+					<!-- Description -->
+					<p class="form-text mb-4">Enter the email address associated with your account. We'll send a one-time password (OTP) to verify your identity and reset your password.</p>
+
+					<!-- Form -->
+					<form th:action="@{/send-otp}" method="post" class="needs-validation" novalidate>
+						<div class="mb-3">
+							<label for="email" class="form-label">Email Address</label>
+							<input
+								id="email"
+								type="email"
+								name="email"
+								class="form-control"
+								placeholder="you@example.com"
+								required
+								aria-describedby="emailHelp"
+							/>
+							<div class="invalid-feedback d-block" style="display: none; color: #e74c3c; font-size: 0.85rem; margin-top: 0.5rem;">
+								Please provide a valid email address.
 							</div>
-
-							<!--remove session message-->
-							<th:block th:text="${@sessionHelper.removeMessageFromSession()}"></th:block>
-
 						</div>
 
-						<!--Email form-->
-						<h3 class="text-center mb-3">Please validate your registered email !!</h3>
+						<!-- Buttons -->
+						<div class="btn-wrapper">
+							<button type="submit" class="btn btn-primary">
+								<span>Send OTP</span>
+							</button>
+						</div>
+					</form>
 
-						<form th:action="@{/send-otp}" method="post">
-							<div class="form-group mb-3">
-								<input type="email" name="email" class="form-control"
-									placeholder="Enter your email here" required />
-							</div>
-
-							<div class="container text-center">
-								<button class="btn btn-warning">Send OTP</button>
-							</div>
-
-						</form>
-
+					<!-- Back to Login Button (Outside Form) -->
+					<div class="btn-wrapper" style="margin-top: 1rem;">
+						<a th:href="@{/signin}" class="btn btn-secondary" onclick="return true;">Back to Login</a>
 					</div>
+				</div>
+
+				<!-- Footer -->
+				<div class="forget-card-footer">
+					<strong>Tip:</strong> If you don't receive the OTP within a few minutes, check your spam folder or request a new code.
 				</div>
 			</div>
 		</div>
-
 	</section>
+
+	<!-- Form Validation Script -->
+	<script>
+		(function () {
+			'use strict';
+			const form = document.querySelector('.needs-validation');
+			const emailInput = document.querySelector('#email');
+			const invalidFeedback = document.querySelector('.invalid-feedback');
+
+			form.addEventListener('submit', function (event) {
+				if (!form.checkValidity()) {
+					event.preventDefault();
+					event.stopPropagation();
+					invalidFeedback.style.display = 'block';
+				}
+				form.classList.add('was-validated');
+			});
+
+			// Real-time validation
+			emailInput.addEventListener('input', function () {
+				if (this.checkValidity()) {
+					invalidFeedback.style.display = 'none';
+				}
+			});
+		})();
+	</script>
 </body>
 
 </html>
